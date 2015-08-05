@@ -3,13 +3,25 @@
 </head>
 
 <body>
-  <h1>Chat</h1>
-
-  {{> chat }}
+  
 </body>
 
+<template name="main">
+  <div class="container">
+    <h1>Chat</h1>
+    {{> yield }}
+    <hr>
+    <footer>&copy; Henrik Raitasola</footer>
+  </div>
+</template>
+
+<template name="home">
+  <h2>Welcome to HekaChat</h2>
+  <button class="btn btn-primary">Create public room</button>
+</template>
+
 <template name="chat">
-  <h2>Messages</h2>
+  <h2>Chat room</h2>
   <form>
   	<input name="messageBody" type="text" placeholder="Say hello..." autocomplete="off">
   	<input type="submit" value="Send">
