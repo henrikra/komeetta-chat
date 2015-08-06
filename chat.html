@@ -21,12 +21,22 @@
 </template>
 
 <template name="chat">
+  <ol class="breadcrumb">
+    <li><a href="{{ pathFor route='home' }}">Home</a></li>
+    <li class="active">Chat Room: {{ _id }}</li>
+  </ol>
   <h2>Chat room</h2>
   <form>
-  	<input name="messageBody" type="text" placeholder="Say hello..." autocomplete="off">
-  	<input type="submit" value="Send">
+    <div class="input-group">
+    	<input class="form-control"  name="messageBody" type="text" placeholder="Say hello..." autocomplete="off">
+    	<span class="input-group-btn">
+        <input class="btn btn-primary" type="submit" value="Send">
+      </span>
+    </div>
   </form>
+  <ul class="list-group">
   {{ #each messages }}
-  	<div>{{ body }}</div>
+  	<li class="list-group-item">{{ body }}</li>
   {{ /each }}
+  </ul>
 </template>
