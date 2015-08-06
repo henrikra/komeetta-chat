@@ -12,6 +12,9 @@ Router.route('/', {
 Router.route('/:roomId', {
   name: 'chat',
   template: 'chat',
+  waitOn: function() {
+    this.subscribe('messages', this.params.roomId);
+  },
   data: function() {
     var currentRoom = ChatRooms.findOne({_id: this.params.roomId});
     // Redirect to home if room id is wrong
@@ -75,5 +78,9 @@ if (Meteor.isServer) {
     addRoom: function() {
       return ChatRooms.insert({messages: []});
     }
+  });
+
+  Meteor.publish('messages', function(roomId) {
+    return ChatRooms.find({_id: roomId});
   });
 }
