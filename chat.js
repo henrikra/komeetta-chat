@@ -32,29 +32,18 @@ if (Meteor.isClient) {
     'submit form': function(e) {
       e.preventDefault();
       var newMessageBody = e.target.messageBody.value;
-      if (newMessageBody){
-        ChatRooms.update(
-          {_id: Router.current().params.roomId},
-          {
-            $push: {
-              messages: {
-                body: newMessageBody,
-                createdAt: new Date()
-              }
-            }
-          }
-        );
-        e.target.messageBody.value = '';
-      }
+      var roomId = Router.current().params.roomId;
+      Meteor.call('addMessage', newMessageBody, roomId);
+      e.target.messageBody.value = '';
     }
   });
 
   Template.home.events({
     'click button': function() {
-      var newRoomId = ChatRooms.insert({
-        messages: []
-      });
-      Router.go('chat', {roomId: newRoomId});
+      Meteor.call('addRoom', function(err, result) {
+        var newRoomId = result;
+        Router.go('chat', {roomId: newRoomId});
+      });  
     }
   });
 }
@@ -65,8 +54,26 @@ if (Meteor.isServer) {
   });
 
   Meteor.methods({
-    'removeChatRooms': function() {
+    removeChatRooms: function() {
       return ChatRooms.remove({});
+    },
+    addMessage: function(newMessageBody, roomId) {
+      if (newMessageBody){
+        ChatRooms.update(
+          {_id: roomId},
+          {
+            $push: {
+              messages: {
+                body: newMessageBody,
+                createdAt: new Date()
+              }
+            }
+          }
+        );
+      }
+    },
+    addRoom: function() {
+      return ChatRooms.insert({messages: []});
     }
   });
 }
