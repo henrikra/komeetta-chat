@@ -57,9 +57,6 @@ if (Meteor.isServer) {
   });
 
   Meteor.methods({
-    removeChatRooms: function() {
-      return ChatRooms.remove({});
-    },
     addMessage: function(newMessageBody, roomId) {
       if (newMessageBody){
         ChatRooms.update(
