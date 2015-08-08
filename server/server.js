@@ -5,13 +5,17 @@ Meteor.startup(function () {
 Meteor.methods({
   addMessage: function(newMessageBody, roomId) {
     if (newMessageBody){
+      var creatorId = Meteor.userId();
+      var creatorUsername = Meteor.user().username
       ChatRooms.update(
         {_id: roomId},
         {
           $push: {
             messages: {
               body: newMessageBody,
-              createdAt: new Date()
+              createdAt: new Date(),
+              creatorId: creatorId,
+              creatorUsername: creatorUsername
             }
           }
         }
