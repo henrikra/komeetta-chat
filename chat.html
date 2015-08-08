@@ -37,7 +37,7 @@
   </form>
   <ul class="list-group">
   {{ #each messages }}
-  	<li class="list-group-item">{{ body }}</li>
+  	<li class="list-group-item {{ ownPostClass }}">{{ body }}</li>
   {{ /each }}
   </ul>
 </template>

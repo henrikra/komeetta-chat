@@ -1,4 +1,11 @@
 Template.chat.helpers({
+  ownPostClass: function() {
+    postCreatorId = this.creatorId;
+    currentUserId = Meteor.userId();
+    if (postCreatorId === currentUserId) {
+      return 'active';
+    }
+  }
 });
 
 Template.chat.events({
