@@ -59,16 +59,34 @@ body {
 .chat-message--meta {
   padding: 15px 0;
   color: #6A7276;
+  font-size: 13px;
 }
 .chat-message--body {
   background: #F2F5F6;
   color: #6A7276;
   padding: 15px;
   border-radius: 2px;
+  position: relative;
+}
+.chat-message--arrow {
+  position: absolute;
+  top: 50%;
+  margin-top: -8px;
+  right: 100%;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 8px 10px 8px 0px;
+  border-color: transparent #F2F5F6 transparent transparent;
 }
 .chat-message.own-message .chat-message--body {
   background: #00A7EB;
   color: #fff;
+}
+.chat-message.own-message .chat-message--arrow {
+  border-color: transparent transparent transparent #00A7EB;
+  left: 100%;
+  border-width: 8px 0 8px 10px;
 }
 .chat-message.own-message .chat-message--meta {
   text-align: right;
