@@ -76,3 +76,7 @@ body {
 .chat-message.own-message .chat-message--profile-pic-col {
   text-align: right;
 }
+
+.popover {
+  border-radius: 3px;
+}

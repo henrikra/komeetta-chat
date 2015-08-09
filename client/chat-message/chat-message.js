@@ -1,5 +1,17 @@
 Template.chatMessage.onRendered(function() {
   $('.chat-window--body').scrollTop( $('.chat-window--body').prop("scrollHeight") );
+  
+  var placement = 'right';
+  if (this.$('.chat-message').hasClass('own-message')) {
+  	placement = 'left';
+	}
+  this.$('[data-toggle="popover"]').popover({
+  	trigger: 'hover',
+  	placement: placement
+  });
+
+  this.$(".chat-message").hide().fadeIn(500);
+  
 });
 
 Template.chatMessage.helpers({
