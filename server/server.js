@@ -4,7 +4,7 @@ Meteor.startup(function () {
 
 Meteor.methods({
   addMessage: function(newMessageBody, roomId) {
-    if (newMessageBody){
+    if (newMessageBody && Meteor.userId()){
       var creatorId = Meteor.userId();
       var creatorUsername = Meteor.user().username
       ChatRooms.update(
@@ -23,7 +23,9 @@ Meteor.methods({
     }
   },
   addRoom: function() {
-    return ChatRooms.insert({messages: []});
+    if (Meteor.userId()) {
+      return ChatRooms.insert({messages: []});
+    }
   }
 });
 
