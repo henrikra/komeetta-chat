@@ -67,6 +67,7 @@ body {
   padding: 15px;
   border-radius: 2px;
   position: relative;
+  word-wrap: break-word;
 }
 .chat-message--arrow {
   position: absolute;
@@ -97,4 +98,15 @@ body {
 
 .popover {
   border-radius: 3px;
+}
+
+.loading {
+  text-align: center;
+}
+.loading--main-title {
+  margin: 10px 0 5px;
+}
+.loading--sub-title {
+  font-size: 14px;
+  margin: 0 0 20px;
 }

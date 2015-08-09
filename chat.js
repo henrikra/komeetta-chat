@@ -1,7 +1,8 @@
 ChatRooms = new Mongo.Collection('chatrooms');
 
 Router.configure({
-  layoutTemplate: 'main'
+  layoutTemplate: 'main',
+  loadingTemplate: 'loading'
 });
 
 Router.route('/', {
@@ -11,17 +12,14 @@ Router.route('/', {
 
 Router.route('/:roomId', {
   name: 'chat',
-  template: 'chat',
+  loadingTemplate: 'loading',
   waitOn: function() {
-    this.subscribe('messages', this.params.roomId);
+    return Meteor.subscribe('messages', this.params.roomId);
+  },
+  action: function () {
+    this.render('chat');
   },
   data: function() {
-    var currentRoom = ChatRooms.findOne({_id: this.params.roomId});
-    // Redirect to home if room id is wrong
-    if (currentRoom === undefined) {
-      this.render('home');
-    } else {
-      this.render('chat', {data: currentRoom});
-    }
+    return ChatRooms.findOne({_id: this.params.roomId});
   }
 });
