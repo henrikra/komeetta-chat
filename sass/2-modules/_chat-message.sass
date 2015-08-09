@@ -1,0 +1,28 @@
+.chat-message
+	border: 0
+	padding: 0
+	margin-bottom: 15px !important
+
+	&--profile-pic
+		border-radius: 50%
+
+	&--meta
+		padding: 15px 0
+		color: $grey-text
+
+	&--body
+		background: #F2F5F6
+		color: $grey-text
+		padding: 15px
+		border-radius: 2px
+
+	&.own-message
+		.chat-message--body
+			background: $main-color
+			color: #fff
+
+		.chat-message--meta
+			text-align: right
+
+		.chat-message--profile-pic-col
+			text-align: right

@@ -1,0 +1,78 @@
+@import url("http://fonts.googleapis.com/css?family=Roboto");
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.btn {
+  border-radius: 2px;
+}
+
+.btn-primary {
+  background: #00A7EB;
+  border-color: #0095d2;
+}
+.btn-primary:hover {
+  background: #0083b8;
+  border-color: #00719f;
+}
+
+.form-control {
+  border-radius: 2px;
+}
+.form-control:focus {
+  border-color: #00A7EB;
+}
+
+.chat-window {
+  border-radius: 2px;
+}
+.chat-window--heading {
+  border-bottom: 1px solid #ddd;
+  padding: 20px 15px;
+  text-transform: uppercase;
+}
+.chat-window--title {
+  margin: 0;
+  font-size: 16px;
+  color: #6A7276;
+}
+.chat-window--body {
+  height: 500px;
+  overflow-y: scroll;
+}
+.chat-window--footer {
+  background: #F2F5F6;
+  padding: 15px;
+}
+.chat-window--messages {
+  margin: 0;
+}
+
+.chat-message {
+  border: 0;
+  padding: 0;
+  margin-bottom: 15px !important;
+}
+.chat-message--profile-pic {
+  border-radius: 50%;
+}
+.chat-message--meta {
+  padding: 15px 0;
+  color: #6A7276;
+}
+.chat-message--body {
+  background: #F2F5F6;
+  color: #6A7276;
+  padding: 15px;
+  border-radius: 2px;
+}
+.chat-message.own-message .chat-message--body {
+  background: #00A7EB;
+  color: #fff;
+}
+.chat-message.own-message .chat-message--meta {
+  text-align: right;
+}
+.chat-message.own-message .chat-message--profile-pic-col {
+  text-align: right;
+}

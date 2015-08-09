@@ -1,0 +1,29 @@
+<template name="chat">
+  <ol class="breadcrumb">
+    <li><a href="{{ pathFor route='home' }}">Home</a></li>
+    <li class="active">Chat Room: {{ _id }}</li>
+  </ol>
+
+  <div class="panel panel-default chat-window">
+    <div class="chat-window--heading">
+      <h3 class="chat-window--title">{{ _id }}</h3>
+    </div>
+    <div class="panel-body chat-window--body">
+      <ul class="list-group chat-window--messages">
+      {{ #each messages }}
+        {{> chatMessage }}
+      {{ /each }}
+      </ul>
+    </div>
+    <div class="panel-footer chat-window--footer">
+      <form>
+        <div class="input-group">
+          <input class="form-control" name="messageBody" type="text" placeholder="Say hello..." autocomplete="off">
+          <span class="input-group-btn">
+            <input class="btn btn-primary" type="submit" value="Send">
+          </span>
+        </div>
+      </form>
+    </div>
+  </div>
+</template>
