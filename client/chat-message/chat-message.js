@@ -42,5 +42,8 @@ Template.chatMessage.helpers({
     if (postCreatorId === currentUserId) {
       return 'col-xs-pull-10';
     }
+  },
+  avatarURL: function(userId) {
+    return Meteor.users.findOne({_id: userId}).profile.avatarURL;
   }
 });

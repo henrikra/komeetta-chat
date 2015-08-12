@@ -1,8 +1,12 @@
 <template name="chatMessage">
   <li class="list-group-item chat-message {{ ownMessageClass }}">
     <div class="row">
-      <div class="chat-message--profile-pic-col col-xs-1 {{ ownMessagePictureClass }}">
-        <img src="http://www.fillmurray.com/50/50" class="chat-message--profile-pic" alt="Profile picture" data-toggle="popover" data-content="{{ creatorUsername }}">
+      <div class="col-xs-1 {{ ownMessagePictureClass }}">
+        {{#if avatarURL creatorId}}
+          <div class="chat-message--avatar" style="background-image: url('{{ avatarURL creatorId }}')" data-toggle="popover" data-content="{{ creatorUsername }}"></div>
+        {{ else }}
+          <div class="chat-message--avatar" style="background-image: url('http://www.fillmurray.com/50/50')" data-toggle="popover" data-content="{{ creatorUsername }}"></div>
+        {{/if}}
       </div>
       <div class="col-xs-9 {{ ownMessageBodyClass }}">
         <div class="chat-message--body">

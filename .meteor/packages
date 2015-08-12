@@ -11,3 +11,5 @@ accounts-ui
 twbs:bootstrap
 momentjs:moment
 joshowens:accounts-entry
+cfs:standard-packages
+cfs:gridfs

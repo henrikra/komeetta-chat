@@ -1,0 +1,11 @@
+<template name="profile">
+	<h1>Profile settings</h1>
+	<img src="{{ currentUser.profile.avatarURL }}" alt="Avatar">
+	<form enctype="multipart/form-data" method="post">
+	<div class="form-group">
+    <label for="profile-image-input">Profile image</label>
+    <input type="file" name="profileImageInput"  id="profile-image-input">
+  </div>
+  <button type="submit" class="btn btn-primary">Save</button>
+	</form>
+</template>
