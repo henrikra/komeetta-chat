@@ -12,5 +12,11 @@ Template.home.events({
 });
 
 Accounts.ui.config({
-  passwordSignupFields: 'USERNAME_ONLY'
+  passwordSignupFields: 'USERNAME_AND_EMAIL'
+});
+
+AccountsEntry.config({
+  passwordSignupFields: 'USERNAME_AND_EMAIL',
+  homeRoute: '/',
+  dashboardRoute: '/'
 });

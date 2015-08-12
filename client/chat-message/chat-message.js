@@ -10,7 +10,7 @@ Template.chatMessage.onRendered(function() {
   	placement: placement
   });
 
-  this.$(".chat-message").hide().fadeIn(500);
+  this.$(".chat-message").hide().fadeIn(400);
   
 });
 
