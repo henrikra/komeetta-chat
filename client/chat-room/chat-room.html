@@ -5,9 +5,13 @@
     </div>
     <div class="panel-body chat-window--body">
       <ul class="list-group chat-window--messages">
-      {{ #each messages }}
-        {{> chatMessage }}
-      {{ /each }}
+      {{#if messages}}
+        {{ #each messages }}
+          {{> chatMessage }}
+        {{ /each }}
+      {{ else }}
+        <div class="alert alert-info" role="alert">Chat room is now ready! Share this room's URL with your friends and start chatting!</div>
+      {{/if}}
       </ul>
     </div>
     <div class="panel-footer chat-window--footer">
