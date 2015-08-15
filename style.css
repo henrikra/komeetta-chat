@@ -114,3 +114,18 @@ body {
   font-size: 14px;
   margin: 0 0 20px;
 }
+
+.home {
+  text-align: center;
+}
+.home--title {
+  display: inline-block;
+  margin: 20px 0;
+}
+.home--title-blue {
+  color: #00A7EB;
+}
+.home--create-room-btn {
+  display: block;
+  margin: 0 auto 30px;
+}
